@@ -98,18 +98,18 @@ public class BasePageMethodaTest extends BaseTest {
         page.video().saveAs(Path.of("....."));
 
 
-         // ===================== 6. JavaScript в браузере =====================
+        // ===================== 6. JavaScript в браузере =====================
 
-         // page.evaluate(expression): Выполнение JavaScript.
-         Object result = page.evaluate("document.title"); // Получение заголовка страницы
+        // page.evaluate(expression): Выполнение JavaScript.
+        Object result = page.evaluate("document.title"); // Получение заголовка страницы
 
-         // page.evaluateHandle(expression): Выполнение JavaScript и возврат handle.
-         JSHandle handle = page.evaluateHandle("document.body"); // Получение handle для body
+        // page.evaluateHandle(expression): Выполнение JavaScript и возврат handle.
+        JSHandle handle = page.evaluateHandle("document.body"); // Получение handle для body
 
-         // Handle (дескриптор) — это ссылка на объект в контексте браузера (например, DOM-элемент, функция, результат вычислений). 
-         // Он не содержит сам объект, а позволяет взаимодействовать с ним через API 
-         // (например, передавать между вызовами evaluate, вызывать методы, извлекать свойства), избегая копирования
-         //  данных между браузером и скриптом. Это повышает эффективность работы с динамическими или тяжелыми объектами
+        // Handle (дескриптор) — это ссылка на объект в контексте браузера (например, DOM-элемент, функция, результат вычислений).
+        // Он не содержит сам объект, а позволяет взаимодействовать с ним через API
+        // (например, передавать между вызовами evaluate, вызывать методы, извлекать свойства), избегая копирования
+        //  данных между браузером и скриптом. Это повышает эффективность работы с динамическими или тяжелыми объектами
     }
 
 }

@@ -27,7 +27,7 @@ public class AssertionsText extends BaseTest {
         // - Прямая работа с локаторами: Не нужно предварительно получать значения.
 
         // ===================== 1. Примеры с assertThat() =====================  
-      
+
         page.navigate("http://example.com");
 
         // 1. Проверка видимости элемента
@@ -60,8 +60,8 @@ public class AssertionsText extends BaseTest {
         page.navigate("http://example.com");
 
         // 1. Проверка видимости элемента (JUnit)
-        assertTrue(page.locator("#submit-button").isVisible(), 
-                      "Кнопка должна быть видимой");
+        assertTrue(page.locator("#submit-button").isVisible(),
+                "Кнопка должна быть видимой");
 
         // 2. Проверка текста элемента (JUnit)
         String header = page.locator("h1.title").textContent();
@@ -95,7 +95,7 @@ public class AssertionsText extends BaseTest {
         // ===================== 4. Список популярных утверждений в Playwright (Java) =====================  
 
         Locator element = page.getByAltText("Continue");
-        
+
         // Элемент видим
         PlaywrightAssertions.assertThat(element).isVisible();
 
@@ -104,7 +104,7 @@ public class AssertionsText extends BaseTest {
 
         // Элемент содержит точный текст
         PlaywrightAssertions.assertThat(element).hasText("Text");
-        
+
         // Элемент содержит часть текста
         PlaywrightAssertions.assertThat(element).containsText("Text");
 

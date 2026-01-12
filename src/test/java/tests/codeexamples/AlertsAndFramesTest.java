@@ -90,11 +90,11 @@ public class AlertsAndFramesTest extends BaseTest {
          * - Prompt: Запрос ввода текста + OK/Cancel.
          */
 
-         // page.onDialog(): Слушатель событий диалогов.
-         // dialog.accept(), dialog.dismiss(): Принятие/отклонение.
-         // dialog.defaultValue(), dialog.message(): Данные диалога.
+        // page.onDialog(): Слушатель событий диалогов.
+        // dialog.accept(), dialog.dismiss(): Принятие/отклонение.
+        // dialog.defaultValue(), dialog.message(): Данные диалога.
 
-         // Автопринятие всех диалогов
+        // Автопринятие всех диалогов
         page.onDialog(Dialog::accept);
 
         // Избирательная обработка
@@ -115,7 +115,7 @@ public class AlertsAndFramesTest extends BaseTest {
 
         page.navigate("https://example.com/alert-demo");
         page.locator("button#show-alert").click(); // Триггер Alert
-            
+
         // Проверка, что после Alert произошел переход
         assert page.url().contains("success");
 
@@ -142,24 +142,24 @@ public class AlertsAndFramesTest extends BaseTest {
         assert page.locator("#username").textContent().equals("Playwright");
 
 
-         // ===================== Пример 3: Взаимодействие с DOM-модалкой =====================  
+        // ===================== Пример 3: Взаимодействие с DOM-модалкой =====================
 
-         page.navigate("https://example.com/modal-demo");
+        page.navigate("https://example.com/modal-demo");
 
         // 1. Открытие модалки
         page.locator("button#open-modal").click();
-            
+
         // 2. Ожидание появления и работа с элементами
         Locator modal = page.locator(".modal-dialog");
         modal.locator("input#email").fill("test@example.com");
         modal.locator("button#submit").click();
-            
+
         // 3. Проверка исчезновения модалки
         PlaywrightAssertions.assertThat(modal).isHidden(); // Автоматическое ожидание скрытия
-            
+
         // 4. Альтернатива: закрытие через кнопку
         // modal.locator(".close-btn").click();
-    
+
     }
 
 }

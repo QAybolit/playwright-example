@@ -18,19 +18,19 @@ public class LocatorsAndElementsTest extends BaseTest {
 
         /**
          * Локаторы — это объекты, позволяющие точно найти элементы DOM (например, кнопки, поля ввода, контейнеры)
-         * 
+         *
          * В Playwright локаторы решают главные задачи:
          * 1. Автоматические ожидания: локаторы автоматически ждут появления элементов и их видимости, 
          * исключая необходимость в статических задержках (Thread.sleep) или явных ожиданиях.
-         * 
+         *
          * 2. Устойчивость к изменениям: встроенные методы (getByRole(), getByText(), getByLabel() и др.) 
          * более надежны и легки для поддержки, чем простые CSS или XPath селекторы.
-         * 
+         *
          * 3. Читаемость и поддерживаемость: код с использованием читаемых локаторов проще понимать и сопровождать, 
          * например page.getByText("Submit") vs page.locator("//button[@class='btn']").
-         * 
+         *
          * Встроенные локаторы (рекомендуется)
-         * 
+         *
          * - getByText()	Ищет по точному или частичному тексту
          * - getByRole()	Ищет элементы по ARIA-роли
          * - getByLabel()	Ищет по тексту связанной метки <label>
@@ -38,32 +38,32 @@ public class LocatorsAndElementsTest extends BaseTest {
          * - getByAltText()	Поиск по атрибуту alt
          * - getByTitle()	Поиск по атрибуту title
          * - getByTestId()	Поиск по атрибуту data-testid
-         * 
+         *
          * CSS-селектор
          * Locator submitButton = page.locator("button.submit");
-         * 
+         *
          * XPath-селектор
          * Locator header = page.locator("//h1[contains(text(),'Welcome')]");
          */
 
-         // Для более точного позиционирования локаторы можно комбинировать и фильтровать
-         Locator loginButton = page.getByRole(AriaRole.BUTTON)
-            .filter(new Locator.FilterOptions().setHasText("Sign in"))
-            .filter(new Locator.FilterOptions().setHas(page.locator("#login")));
+        // Для более точного позиционирования локаторы можно комбинировать и фильтровать
+        Locator loginButton = page.getByRole(AriaRole.BUTTON)
+                .filter(new Locator.FilterOptions().setHasText("Sign in"))
+                .filter(new Locator.FilterOptions().setHas(page.locator("#login")));
 
-         // Методы фильтрации:
-         // .first() — первый элемент
-         // .last() — последний элемент
-         // .nth(int index) — элемент с индексом (индексация с нуля)
-         // .filter(Locator.FilterOptions options) — фильтрация по условию
-         
-         
-         /**
-          * Действия — это методы, которые имитируют поведение пользователя:
-          * Автоматические ожидания: Playwright выполняет действие только когда элемент готов (видим, включен, стабилен).
-          * Встроенная отказоустойчивость: Автоматические повторы при временных сбоях (например, элемент перекрыт анимацией).
-          * Поддержка современных фреймворков: Корректная работа с React/Vue.js (элементы обновляются без перезагрузки страницы).
-          */
+        // Методы фильтрации:
+        // .first() — первый элемент
+        // .last() — последний элемент
+        // .nth(int index) — элемент с индексом (индексация с нуля)
+        // .filter(Locator.FilterOptions options) — фильтрация по условию
+
+
+        /**
+         * Действия — это методы, которые имитируют поведение пользователя:
+         * Автоматические ожидания: Playwright выполняет действие только когда элемент готов (видим, включен, стабилен).
+         * Встроенная отказоустойчивость: Автоматические повторы при временных сбоях (например, элемент перекрыт анимацией).
+         * Поддержка современных фреймворков: Корректная работа с React/Vue.js (элементы обновляются без перезагрузки страницы).
+         */
 
 
         // ===================== 1. Базовые действия =====================  
@@ -71,9 +71,9 @@ public class LocatorsAndElementsTest extends BaseTest {
         // click() — основной метод для клика.
         Locator element = page.getByRole(AriaRole.TABLE);
         element.click(new Locator.ClickOptions()
-            .setDelay(100)          // Задержка 100 мс между mousedown и mouseup
-            .setButton(MouseButton.RIGHT)  // Правый клик (контекстное меню)
-            .setForce(true)         // Кликнуть, даже если элемент перекрыт (осторожно!)
+                .setDelay(100)          // Задержка 100 мс между mousedown и mouseup
+                .setButton(MouseButton.RIGHT)  // Правый клик (контекстное меню)
+                .setForce(true)         // Кликнуть, даже если элемент перекрыт (осторожно!)
         );
 
         // dblclick() — двойной клик (например, для выделения слова).
@@ -93,11 +93,11 @@ public class LocatorsAndElementsTest extends BaseTest {
 
         // Поставить галочку  
         Locator checkbox = page.getByRole(AriaRole.CHECKBOX);
-        checkbox.check(); 
+        checkbox.check();
 
         // Снять галочку 
         checkbox.uncheck();
-        
+
         // Проверить состояние  - true/false
         boolean isChecked = checkbox.isChecked();
 
@@ -107,13 +107,13 @@ public class LocatorsAndElementsTest extends BaseTest {
         Locator select = page.getByRole(AriaRole.OPTION);
 
         // Выбор по значению (value)
-        select.selectOption("ru");  
+        select.selectOption("ru");
 
         // Выбор по видимому тексту  
-        select.selectOption(new SelectOption().setLabel("Русский")); 
+        select.selectOption(new SelectOption().setLabel("Русский"));
 
         // Выбор нескольких значений (для multiple)
-        select.selectOption(new String[] {"en", "de"});
+        select.selectOption(new String[]{"en", "de"});
 
 
         // ===================== 4. Проверки состояний элементов =====================  
@@ -135,7 +135,7 @@ public class LocatorsAndElementsTest extends BaseTest {
 
 
         // ===================== 5. Продвинутые действия ===================== 
-        
+
         // Наведение мыши - Имитирует hover (полезно для выпадающих меню)
         element.hover();
 

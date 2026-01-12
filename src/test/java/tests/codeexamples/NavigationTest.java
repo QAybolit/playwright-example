@@ -19,8 +19,8 @@ public class NavigationTest extends BaseTest {
 
         // Открытие страницы 
         page.navigate("https://example.com", new Page.NavigateOptions()
-            .setTimeout(60000)                     // Макс. время ожидания (60 сек)
-            .setWaitUntil(WaitUntilState.DOMCONTENTLOADED) // Ждать "domcontentloaded" вместо "load"
+                .setTimeout(60000)                     // Макс. время ожидания (60 сек)
+                .setWaitUntil(WaitUntilState.DOMCONTENTLOADED) // Ждать "domcontentloaded" вместо "load"
         );
 
         // Перезагрузка
@@ -36,24 +36,24 @@ public class NavigationTest extends BaseTest {
 
         // Создать новую вкладку в текущем контексте  
         BrowserContext context = browser.newContext();
-        Page newTab = context.newPage();  
+        Page newTab = context.newPage();
         newTab.navigate("https://new-page.com");
 
         // Получить все вкладки контекста  
-        List<Page> pages = context.pages();  
+        List<Page> pages = context.pages();
 
         // Переключиться на вторую вкладку  
-        Page secondTab = pages.get(1);  
+        Page secondTab = pages.get(1);
         secondTab.bringToFront(); // Активировать вкладку  
 
         // Закрыть вкладку  
         secondTab.close();
 
 
-         // ===================== 3. Контроль размера окна ===================== 
+        // ===================== 3. Контроль размера окна =====================
 
-         // Установить размер 1920x1080  
-        page.setViewportSize(1920, 1080);  
+        // Установить размер 1920x1080
+        page.setViewportSize(1920, 1080);
 
         // Эмуляция мобильного устройства  
         page.setViewportSize(375, 812); // iPhone X
@@ -65,10 +65,10 @@ public class NavigationTest extends BaseTest {
         // ===================== 4. Работа с историей браузера ===================== 
 
         // Получить текущий URL  
-        String currentUrl = page.url();  
+        String currentUrl = page.url();
 
         // Получить историю навигации  
-        List<String> history = (List<String>) page.evaluate("() => window.history.length");  
+        List<String> history = (List<String>) page.evaluate("() => window.history.length");
 
         // Добавить запись в историю (JS)  
         page.evaluate("() => window.history.pushState({}, '', '/new-url')");
@@ -77,7 +77,7 @@ public class NavigationTest extends BaseTest {
         // ===================== 5. Получение информации о странице ===================== 
 
         // page.title()	Заголовок страницы (<title>)
-        
+
         // page.url()	Текущий URL
 
         // page.content()	HTML-содержимое страницы
@@ -94,6 +94,6 @@ public class NavigationTest extends BaseTest {
         // for (Page tab : context.pages()) {  
         //     if (!tab.equals(mainPage)) tab.close();  
         // }
-        
+
     }
 }
