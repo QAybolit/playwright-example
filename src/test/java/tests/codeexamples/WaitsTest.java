@@ -1,8 +1,7 @@
-package tests.codeExamoles;
+package tests.codeexamples;
 
 import org.junit.jupiter.api.Test;
 
-import com.microsoft.playwright.Dialog;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Request;

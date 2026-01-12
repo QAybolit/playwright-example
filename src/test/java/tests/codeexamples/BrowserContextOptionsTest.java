@@ -1,4 +1,4 @@
-package tests.codeExamoles;
+package tests.codeexamples;
 
 import java.util.Arrays;
 
