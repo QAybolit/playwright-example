@@ -185,7 +185,7 @@ public class BrowserContextsExample {
 
             // Сохранить в файл
             String state = context.storageState(new BrowserContext.StorageStateOptions()
-                    .setPath(Paths.get("state.json"));
+                    .setPath(Paths.get("state.json")));
 //                    .setIndexedDB(true)); // Включая IndexedDB
 
             // Без сохранения на диск
@@ -216,9 +216,9 @@ public class BrowserContextsExample {
             // ===================== Ожидание сообщений в консоли =====================
 
             ConsoleMessage msg = context.waitForConsoleMessage(
-                    () -> page.click("button"), // Действие, вызывающее сообщение
                     new BrowserContext.WaitForConsoleMessageOptions()
-                            .setPredicate(m -> m.text().contains("Warning")) // Фильтр
+                            .setPredicate(m -> m.text().contains("Warning")), // Фильтр
+                    () -> page.click("button") // Действие, вызывающее сообщение
             );
             System.out.println(msg.text());
 
@@ -236,9 +236,9 @@ public class BrowserContextsExample {
 
             // Ожидаем новую страницу при клике
             Page popup = context.waitForPage(
-                    () -> page.click("a[target=_blank]"),
                     new BrowserContext.WaitForPageOptions()
-                            .setPredicate(p -> p.url().contains("/login"))
+                            .setPredicate(p -> p.url().contains("/login")),
+                    () -> page.click("a[target=_blank]")
             );
 
             // Ожидаем полную загрузку
