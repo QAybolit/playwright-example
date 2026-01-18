@@ -5,10 +5,7 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.PlaywrightException;
-import com.microsoft.playwright.impl.TargetClosedError;
 import com.microsoft.playwright.options.AriaRole;
-
-import java.util.concurrent.TimeoutException;
 
 public class PlaywrightExceptionExample {
 
