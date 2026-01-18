@@ -19,7 +19,7 @@ public class BrowserExample {
         /**
          * Browser - Представляет экземпляр браузера (Chromium, Firefox, WebKit).
          * Создается через BrowserType.launch(). Используется для создания изолированных контекстов.
-         *
+         * <br>
          * Методы:
          * - chromium(), firefox(), webkit() - Возвращает тип браузера
          * - close() - Принудительно закрывает браузер со всеми страницами
@@ -144,19 +144,19 @@ public class BrowserExample {
          * Важные предупреждения
          * - Всегда закрывайте контексты явно:
          * browser.close(); // Может потерять данные
-         *
+         * <br>
          * // Хорошо
          * context.close(); // Сохраняет HAR/видео
          * browser.close();
-         *
+         * <br>
          * - Осторожно с setJavaScriptEnabled(false):
-         * Ломает большинство современных сайтов
+         * Ломает большинство современных сайтов.
          * Используйте только для специальных тестов
-         *
+         * <br>
          * - Особенности WebKit:
          * Клиентские сертификаты не работают с localhost
          * .setBaseURL("https://local.playwright")
-         *
+         * <br>
          * - Режим инкогнито:
          * Каждый newContext() создает изолированное окружение
          * BrowserContext session1 = browser.newContext();

@@ -68,7 +68,9 @@ public class ConsoleMessageExample {
             ConsoleMessage msg = page.waitForConsoleMessage(
                     new Page.WaitForConsoleMessageOptions()
                             .setPredicate(m -> m.text().contains("завершена")),
-                    () -> { page.evaluate("console.warn('Проверка завершена')");}
+                    () -> {
+                        page.evaluate("console.warn('Проверка завершена')");
+                    }
             );
 
             System.out.println("Получено: " + msg.text()); // "Проверка завершена"

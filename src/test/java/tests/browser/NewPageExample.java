@@ -1,7 +1,6 @@
 package tests.browser;
 
 import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
@@ -14,10 +13,10 @@ public class NewPageExample {
 
         /**
          * Метод newPage - Создает новую страницу в новом контексте браузера. При закрытии страницы контекст автоматически закрывается
-         *
+         * <br>
          * Используйте только для коротких сценариев или одностраничных приложений. В рабочих проектах явно создавайте
          * контекст через Browser.newContext() и страницы через context.newPage() для контроля времени существования.
-         *
+         * <br>
          * Основные настройки контекста страницы:
          * - setAcceptDownloads - Разрешает автоматическую загрузку файлов.
          * - setBaseURL - Базовый URL для относительных путей (например, http://localhost:3000).
@@ -31,7 +30,7 @@ public class NewPageExample {
          * - setProxy - Настройки прокси.
          * - setViewportSize - Размер области просмотра (по умолчанию: 1280×720). Используйте null для отключения.
          * - setUserAgent - Кастомный User-Agent.
-         *
+         * <br>
          * Другие параметры: setExtraHTTPHeaders, setHttpCredentials, setPermissions, setRecordHarPath,
          *  setRecordVideoDir, setStorageState,  setTimezoneId.
          */

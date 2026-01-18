@@ -18,19 +18,18 @@ public class LocatorsAndElementsTest extends BaseTest {
 
         /**
          * Локаторы — это объекты, позволяющие точно найти элементы DOM (например, кнопки, поля ввода, контейнеры)
-         *
+         * <br>
          * В Playwright локаторы решают главные задачи:
          * 1. Автоматические ожидания: локаторы автоматически ждут появления элементов и их видимости, 
          * исключая необходимость в статических задержках (Thread.sleep) или явных ожиданиях.
-         *
+         * <br>
          * 2. Устойчивость к изменениям: встроенные методы (getByRole(), getByText(), getByLabel() и др.) 
          * более надежны и легки для поддержки, чем простые CSS или XPath селекторы.
-         *
+         * <br>
          * 3. Читаемость и поддерживаемость: код с использованием читаемых локаторов проще понимать и сопровождать, 
          * например page.getByText("Submit") vs page.locator("//button[@class='btn']").
-         *
-         * Встроенные локаторы (рекомендуется)
-         *
+         * <br>
+         * Встроенные локаторы (рекомендуется):
          * - getByText()	Ищет по точному или частичному тексту
          * - getByRole()	Ищет элементы по ARIA-роли
          * - getByLabel()	Ищет по тексту связанной метки <label>
@@ -38,10 +37,10 @@ public class LocatorsAndElementsTest extends BaseTest {
          * - getByAltText()	Поиск по атрибуту alt
          * - getByTitle()	Поиск по атрибуту title
          * - getByTestId()	Поиск по атрибуту data-testid
-         *
+         * <br>
          * CSS-селектор
          * Locator submitButton = page.locator("button.submit");
-         *
+         * <br>
          * XPath-селектор
          * Locator header = page.locator("//h1[contains(text(),'Welcome')]");
          */
@@ -109,7 +108,7 @@ public class LocatorsAndElementsTest extends BaseTest {
         // Выбор по значению (value)
         select.selectOption("ru");
 
-        // Выбор по видимому тексту  
+        // Выбор, по-видимому, тексту
         select.selectOption(new SelectOption().setLabel("Русский"));
 
         // Выбор нескольких значений (для multiple)
@@ -152,7 +151,7 @@ public class LocatorsAndElementsTest extends BaseTest {
 
         // ===================== 6. Лучшие практики ===================== 
 
-        // Всегда проверяйте видимость перед действием
+        // Всегда проверяйте видимость перед действием.
         // Избегайте force: true: Указывайте только для элементов вне viewport (например, в модальных окнах).
         // Используйте fill() вместо type() для заполнения форм — работает в 5 раз быстрее.
     }

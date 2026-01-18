@@ -37,13 +37,13 @@ public class BrowserContextOptionsTest extends BaseTest {
 
         /**
          * 1. setUserAgent() - строка идентификации браузера/устройства
-         *
+         * <br>
          * 2. setViewportSize(width, height) - размеры экрана в пикселях
-         *
+         * <br>
          * 3. setDeviceScaleFactor() - плотность пикселей (2 для Retina, 3 для Super Retina)
-         *
+         * <br>
          * 4. setIsMobile(true) - включение мобильного режима
-         *
+         * <br>
          * 5. setHasTouch(true) - эмуляция touch-событий
          */
 

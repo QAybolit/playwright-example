@@ -37,6 +37,7 @@ public class APIRequestContextExample {
          * - Запросы через browserContext.request() используют куки браузера
          * - Ответы с Set-Cookie обновляют браузерные куки
          * - Позволяет совмещать API-тесты и E2E-сценарии (например, аутентификация через API → действия в браузере)
+         * <br>
          * 2. Изолированные контексты:
          * - Создаются через playwright.request().newContext()
          * - Имеют собственное хранилище куки
@@ -96,7 +97,7 @@ public class APIRequestContextExample {
 
         // Сохранение куки/хранилища в файл
         apiContext.storageState(new APIRequestContext.StorageStateOptions()
-                .setPath(Paths.get("api_state.json"))
+                        .setPath(Paths.get("api_state.json"))
 //                .setIndexedDB(true) // Включая IndexedDB (v1.51+)
         );
 
