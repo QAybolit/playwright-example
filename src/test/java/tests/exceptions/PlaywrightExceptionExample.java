@@ -1,4 +1,4 @@
-package tests.playwrightexception;
+package tests.exceptions;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Locator;
